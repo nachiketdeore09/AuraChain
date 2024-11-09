@@ -1,0 +1,160 @@
+/* * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  } */
+  
+  .App {
+    min-height: 100vh;
+    text-align: center;
+    color: white;
+  }
+  
+  header {
+    min-height: 20vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    color: black;
+  }
+  
+  .App-content {
+    font-size: x-large;
+    min-height: 80vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  
+  .app_title {
+    text-align: left;
+  }
+  
+  .app_title h1{
+    color: purple;
+    text-shadow: 1px 0 2px black;
+  }
+  
+  .App-content button {
+    color: white;
+    background: none;
+    width: 30%;
+    border: 2px solid white;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    margin: 0.5rem;
+    cursor: pointer;
+    font-size: 20px;
+    transition: all 0.1s ease-in;
+  }
+  
+  button:hover {
+    box-shadow: 1px 1px 0 1px white,
+                0 0 0 1px white,
+                1px 1px 0 1px white;
+    color: black;
+    background: white;
+  }
+  
+  /*duration content*/
+  .duration-content, .timer-content, .sound-content {
+    flex: 1;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  
+  .duration-content {
+    background: lightgreen;
+  }
+  
+  
+  /*timer*/
+  .timer-content {
+    background: pink;
+    position: relative;
+  }
+  
+  .timer-content svg {
+    position: absolute;
+    height: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(-90deg);
+    pointer-events: none;
+  }
+  
+  .timer {
+    position: absolute;
+    bottom: 10%;
+    color: white;
+  }
+  
+  .play {
+    cursor: pointer;
+  }
+  
+  .timer-content svg circle {
+    transition: all 0.2s ease-in-out;
+  }
+  
+  /*sound*/
+  .sound-content {
+    background: lightblue;
+  }
+  
+  .sound-content button img {
+    width: 2.5rem;
+  }
+  
+  .sound-content button:nth-child(3) {
+    background: rgb(81, 170, 243);
+  }
+  
+  .sound-content button:nth-child(4) {
+    background: rgb(255, 216, 144);
+  }
+  
+  .-disabled {
+    pointer-events: none;
+    background: gray !important;
+  }
+  
+  .enable {
+    background: green !important;
+  }
+  
+  /* media queries */
+  
+  @media screen and (max-width: 900px) {
+    header {
+      flex-direction: column;
+    }
+    .App-content {
+      flex-direction: column;
+      align-items: initial !important;
+    }
+    .duration-content,
+    .timer-content,
+    .sound-content {
+      min-height: 50vh;
+    }
+  }
+ 
+  
+  .redeem-content{
+      height: 12PX;
+  }
+  
+
+  .redeem-content button{
+    /* width:; */
+    color: azure;
+    background-color: blue;
+  }
+  
+  
+  
+  

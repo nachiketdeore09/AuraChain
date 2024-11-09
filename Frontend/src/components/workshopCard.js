@@ -1,0 +1,137 @@
+import React, { useContext, useEffect, useState } from 'react';
+import image from '../images/404-image.png'
+import { WalletContext } from '../context/WalletContext';
+import { toast } from 'react-toastify';
+const WorkshopCard = ({heading,token,imgsrc,link1}) => {
+  const { approveTokens,pyusdBalance,balance,walletAddress, reduceTokens,fetchBalance } = useContext(WalletContext);
+  const [soulToken,setSoulToken]=useState(0);
+  const [pyusdToken,setPyusdToken]=useState(0);
+  useEffect(()=>{
+    const handleFetchDiscount =async () => {
+        var val = Math.min(balance,300);
+        var discount = val/100;    //285/100 ->2.85   
+        var PyusdT=(token-discount);
+        setSoulToken(val);
+        setPyusdToken(PyusdT);
+      }
+      handleFetchDiscount()
+  },[balance])
+    return (
+        <div>
+            <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                <a href={link1}>
+                    <img
+                        className="p-8 rounded-t-lg "
+                        // src={imgsrc}
+                        src={imgsrc}
+                        alt="product image"
+                    />
+                </a>
+                <div className="px-5 pb-5">
+                    <a href="#">
+                        <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                            {heading} 
+                        </h5>
+                    </a>
+                    <div className="flex items-center mt-2.5 mb-5">
+                        <div className="flex items-center space-x-1 rtl:space-x-reverse">
+                            <svg
+                                className="w-4 h-4 text-yellow-300"
+                                aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="currentColor"
+                                viewBox="0 0 22 20"
+                            >
+                                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                            </svg>
+                            <svg
+                                className="w-4 h-4 text-yellow-300"
+                                aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="currentColor"
+                                viewBox="0 0 22 20"
+                            >
+                                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                            </svg>
+                            <svg
+                                className="w-4 h-4 text-yellow-300"
+                                aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="currentColor"
+                                viewBox="0 0 22 20"
+                            >
+                                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                            </svg>
+                            <svg
+                                className="w-4 h-4 text-yellow-300"
+                                aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="currentColor"
+                                viewBox="0 0 22 20"
+                            >
+                                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                            </svg>
+                            <svg
+                                className="w-4 h-4 text-gray-200 dark:text-gray-600"
+                                aria-hidden="true"
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="currentColor"
+                                viewBox="0 0 22 20"
+                            >
+                                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+                            </svg>
+                        </div>
+                        <span className="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ms-3">
+                            5.0
+                        </span>
+                    </div>
+                    <div className="flex items-center justify-between">
+                        <span className="text-2xl font-bold text-gray-900 dark:text-white">
+                            {token} PYUSD
+                        </span>
+                        <button
+                            onClick={async ()=>{
+                                try{
+                                    if(!walletAddress){
+                                        toast.warning("Please connect your wallet");
+                                        return;
+                                    }
+                                    await fetchBalance();
+                                    if(pyusdBalance<pyusdToken || balance<soulToken){
+                                        toast.warning("Insufficient Balance");
+                                        return;
+                                    }
+                                    const res = await toast.promise(approveTokens(pyusdToken),{
+                                        pending: "Approving Tokens",
+                                        success: "Tokens Approved !",
+                                        error: "Approval Aborted"
+                                    })
+                                    if(res){
+                                        await toast.promise(reduceTokens(soulToken,pyusdToken),{
+                                            pending: "Purchasing Workshop",
+                                            success: "Workshop Purchased !",
+                                            error: "Purchase Aborted"
+                                        })
+                                        await fetchBalance();
+                                        return;
+                                    }
+                                }catch(err){
+                                    toast.error("Transaction Failed")
+                                }   
+                            }}
+                            className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                        >
+                            Buy
+                        </button>
+                    </div>
+                    <div className=' text-red-500 font-semibold'>
+                        Get at <span className='font-bold text-red-600'>{pyusdToken}  PYUSD</span> using Soul Tokens
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    );
+}
+
+export default WorkshopCard;
